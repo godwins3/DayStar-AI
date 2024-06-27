@@ -19,13 +19,8 @@ app.add_middleware(
 )
 
 MODEL_PATH = os.path.join("./model", "potato_classifier.h5")
-MODEL_PATH ='D:/hackathons/DayStar-AI/backend/app/model/potato_classifier.h5'
 MODEL = tf.keras.models.load_model(MODEL_PATH)
 CLASS_NAMES = ["Potato Early Blight", "Potato Late Blight", "Potato Healthy"]
-
-@app.get("/")
-async def root():
-    return "Hello, World!"
 
 def read_file_as_image(data) -> np.ndarray:
     image = Image.open(BytesIO(data))
